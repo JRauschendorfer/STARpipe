@@ -3,7 +3,7 @@
 ###		1) An overrep file (made by using fastqc)
 ###		2) Annotation files in gtf format
 ###		3) An indexed genome file
-####################### Step 1: clean and filter #########################################
+####################### Step 1: clean and filter #########################################test
 
 cd /data/student/jkrausch/Trial_With_STAR/DataRaw
 
