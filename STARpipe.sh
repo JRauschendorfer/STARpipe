@@ -1,9 +1,15 @@
 ####################### STAR pipeline Loops ##############################################
+##########################################################################################
 ### Before beginning, you will need:
 ###		1) An overrep file (made by using fastqc)
 ###		2) Annotation files in gtf format
 ###		3) An indexed genome file
-####################### Step 1: clean and filter #########################################test
+####################### Step 1: clean and filter #########################################
+### Notes:
+### 	1) Raw data directory -> /data/student/jkrausch/Trial_With_STAR/DataRaw
+###		2) Clean data directory -> /data/student/jkrausch/Trial_With_STAR/DataClean
+###		3) Adapter library file pathways -> /data/student/jkrausch/Trial_With_STAR/Adapter_Ref.fa
+##########################################################################################
 
 cd /data/student/jkrausch/Trial_With_STAR/DataRaw
 
