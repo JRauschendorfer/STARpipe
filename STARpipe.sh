@@ -1,15 +1,15 @@
 ####################### STAR pipeline Loops ##############################################
 ### Before beginning, you will need:
-###		1) An overrep file (made by using fastqc)
-###		2) Annotation files in gtf format
-###		3) An indexed genome file
+###	1) An overrep file (made by using fastqc)
+###	2) Annotation files in gtf format
+###	3) An indexed genome file
 
 ####################### Step 1: clean and filter #########################################
 ### The overrep file (aka adapter library) is dependent on fastqc results
 ### Notes:
-### 	1) Raw data directory -> /data/student/jkrausch/Trial_With_STAR/DataRaw
-###		2) Clean data directory -> /data/student/jkrausch/Trial_With_STAR/DataClean
-###		3) Adapter library file pathways -> /data/student/jkrausch/Trial_With_STAR/Adapter_Ref.fa
+### 1) Raw data directory -> /data/student/jkrausch/Trial_With_STAR/DataRaw
+###	2) Clean data directory -> /data/student/jkrausch/Trial_With_STAR/DataClean
+###	3) Adapter library file pathways -> /data/student/jkrausch/Trial_With_STAR/Adapter_Ref.fa
 
 cd /data/student/jkrausch/Trial_With_STAR/DataRaw
 
@@ -28,7 +28,7 @@ for OUTPUT1 in $(ls *1.fq.gz)
 ####################### Step 2) gunzip fastq files #######################################
 ### All files in the clean data directory need to be decompressed before mapping
 ### Notes:
-###		1) Clean data directory -> /data/student/jkrausch/Trial_With_STAR/DataClean
+###	1) Clean data directory -> /data/student/jkrausch/Trial_With_STAR/DataClean
 
 cd /data/student/jkrausch/Trial_With_STAR/DataClean
 
@@ -37,9 +37,9 @@ gunzip *fastq.gz
 ####################### Step 3) Mapping reads to the genome ##############################
 ### In this step, decompressed fastq files are mapped to the indexed genome
 ### Notes:
-###		1) Genome directory -> /data/student/jkrausch/Trial_With_STAR/GenomeDir
-### 	2) Clean data directory -> /data/student/jkrausch/Trial_With_STAR/DataClean
-###		3) BAM file directory -> data/student/jkrausch/Trial_With_STAR/OutputBAMandSAM
+###	1) Genome directory -> /data/student/jkrausch/Trial_With_STAR/GenomeDir
+### 2) Clean data directory -> /data/student/jkrausch/Trial_With_STAR/DataClean
+###	3) BAM file directory -> data/student/jkrausch/Trial_With_STAR/OutputBAMandSAM
 
 cd /data/student/jkrausch/Trial_With_STAR/DataClean
 
@@ -58,10 +58,10 @@ for OUTPUT2 in $(ls *1.fastq)
 ####################### Step 4) Summary stats for BAM files ##############################
 ### This step assesses the quality of the mapping step for each sample.
 ### Notes:
-### 	1) We start with an empty text file where the summary stats are written to this is called
-###		   /data/student/jkrausch/Trial_With_STAR/OutputBAMandSAM/MappingQC.txt
-###		2) echo is used to give a title for each summary in the summary text file
-###		3) BAM file directory -> data/student/jkrausch/Trial_With_STAR/OutputBAMandSAM
+### 1) We start with an empty text file where the summary stats are written to this is called
+###	   /data/student/jkrausch/Trial_With_STAR/OutputBAMandSAM/MappingQC.txt
+###	2) echo is used to give a title for each summary in the summary text file
+###	3) BAM file directory -> data/student/jkrausch/Trial_With_STAR/OutputBAMandSAM
 
 cd /data/student/jkrausch/Trial_With_STAR/OutputBAMandSAM
 
@@ -79,7 +79,7 @@ for OUTPUT3 in $(ls *sortedByCoord.out.bam)
 ### This step makes an indexed file specific to each of the samples. This generates a bai 
 ### file.
 ### Notes:
-### 	1) BAM file directory -> data/student/jkrausch/Trial_With_STAR/OutputBAMandSAM
+### 1) BAM file directory -> data/student/jkrausch/Trial_With_STAR/OutputBAMandSAM
 
 cd /data/student/jkrausch/Trial_With_STAR/OutputBAMandSAM
 
@@ -93,9 +93,9 @@ for OUTPUT4 in $(ls *sortedByCoord.out.bam)
 ### This step counts RNA expression levels for each gene in each sample. Requires BAM and
 ### BAI files.
 ### Notes:
-###		1) BAM file directory -> data/student/jkrausch/Trial_With_STAR/OutputBAMandSAM
-###		2) Annotation file -> /data/student/jkrausch/Trial_With_STAR/AnnotationDir/Qrubra_687_v2_1_gene_exons.gtf
-###		3) RNAseq count directory -> /data/student/jkrausch/Trial_With_STAR/CountFiles/
+###	1) BAM file directory -> data/student/jkrausch/Trial_With_STAR/OutputBAMandSAM
+###	2) Annotation file -> /data/student/jkrausch/Trial_With_STAR/AnnotationDir/Qrubra_687_v2_1_gene_exons.gtf
+###	3) RNAseq count directory -> /data/student/jkrausch/Trial_With_STAR/CountFiles/
 cd /data/student/jkrausch/Trial_With_STAR/OutputBAMandSAM/
 	
 for OUTPUT5 $(ls *sortedByCoord.out.bam)
