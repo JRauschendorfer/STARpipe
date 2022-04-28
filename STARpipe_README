@@ -1,0 +1,9 @@
+# STARpipe
+# This script can be used in the linux command line. It is used to map RNA-seq reads to
+# sequenced genomes (FASTA file types) using annotation files (GTF).
+# 
+# Please let me know if any section of the script does not work for you. I will address
+# your comments.
+# Happy coding :)
+
+ 
